@@ -19,129 +19,131 @@
     <div class="content-wrap">
 
         <h2 class="section-heading">Why Donate to CPFC?</h2>
-        <div class="article-body clearfix" style="margin-bottom:32px;">
+        <div class="article-body clearfix" style="margin-bottom:28px;">
             <img class="float-right" src="Images/1x1/10355576_786327611433569_658378465868985233_o.jpg"
-                 alt="CPFC students" style="max-width:40%;">
-            <p>
-                Donating to the Cerebral Palsy Foundation Centre (CPFC) is an impactful way to support
-                individuals with disabilities and promote inclusivity in communities. CPFC's comprehensive
-                support services cater not only to those with cerebral palsy but also to individuals facing
-                other disabilities such as blindness, deafness, and mutism.
-            </p>
-            <p>
-                By contributing to CPFC, donors play a vital role in ensuring that individuals with diverse
-                needs receive the necessary resources, therapies, and assistance programmes to navigate
-                life's challenges. Donations fuel community events and workshops, enabling CPFC to promote
-                inclusivity and create environments where everyone feels valued and supported.
-            </p>
+                 alt="CPFC students" style="max-width:40%;" loading="lazy">
+            <p>Donating to the Cerebral Palsy Foundation Centre (CPFC) is an impactful way to support
+            individuals with disabilities and promote inclusivity in our community. CPFC's comprehensive
+            support services cater not only to those with cerebral palsy but also to individuals facing
+            other disabilities such as blindness, deafness, and mutism.</p>
+            <p>By contributing to CPFC, donors play a vital role in ensuring that individuals with
+            diverse needs receive the necessary resources, therapies, and assistance programmes to
+            navigate life's challenges. Donations fuel community events and workshops, enabling CPFC
+            to promote inclusivity and create environments where everyone feels valued and supported.</p>
             <img class="float-left" src="Images/1x1/1618335_834904646575865_3338131726613972555_o.jpg"
-                 alt="CPFC community" style="max-width:38%;">
-            <p>
-                CPF's focus on research and innovation drives advancements in understanding and treating
-                various disabilities. Donations fund research projects, technological innovations, and
-                therapeutic interventions aimed at improving outcomes and enhancing the quality of life
-                for individuals with disabilities.
-            </p>
-            <p>
-                Empowerment lies at the core of CPF's programmes, which aim to equip individuals with
-                disabilities with the skills, training, and resources they need to live independently
-                and achieve their goals.
-            </p>
+                 alt="CPFC community" style="max-width:36%;" loading="lazy">
+            <p>CPF's focus on research and innovation drives advancements in understanding and treating
+            various disabilities. Donations fund research projects, technological innovations, and
+            therapeutic interventions aimed at improving outcomes and enhancing the quality of life for
+            individuals with disabilities. Empowerment programmes equip individuals with the skills,
+            training, and resources they need to live independently and achieve their goals.</p>
         </div>
 
-        <!-- Donation Form -->
         <div class="donate-layout">
 
+            <!-- Donation form -->
             <div class="form-card">
-                <h2>Donation Form</h2>
+                <h2>Donation Enquiry Form</h2>
+
+                <div id="form-error" style="display:none;color:#cc1f1f;font-size:0.85rem;
+                     margin-bottom:12px;padding:8px 12px;background:#fff0f0;
+                     border:1px solid #ffcccc;border-radius:4px;"></div>
+
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="first-name">First Name</label>
-                        <input type="text" id="first-name" name="firstName" placeholder="First name" required>
+                        <label for="first-name">First Name <span style="color:#cc1f1f;">*</span></label>
+                        <input type="text" id="first-name" name="firstName"
+                               placeholder="First name" required>
                     </div>
                     <div class="form-group">
-                        <label for="last-name">Last Name</label>
-                        <input type="text" id="last-name" name="lastName" placeholder="Last name" required>
+                        <label for="last-name">Last Name <span style="color:#cc1f1f;">*</span></label>
+                        <input type="text" id="last-name" name="lastName"
+                               placeholder="Last name" required>
                     </div>
                 </div>
+
                 <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    <label for="email">Email Address <span style="color:#cc1f1f;">*</span></label>
+                    <input type="email" id="email" name="email"
+                           placeholder="your@email.com" required>
                 </div>
+
                 <div class="form-group">
-                    <label for="phone-number">Phone Number</label>
-                    <input type="tel" id="phone-number" name="phoneNumber" placeholder="+254 700 000 000" required>
-                </div>
-                <div class="form-group">
-                    <label for="donation-details">What would you like to donate?</label>
+                    <label for="donation-details">What would you like to donate? <span style="color:#cc1f1f;">*</span></label>
                     <textarea id="donation-details" name="donationDetails" rows="4"
-                              placeholder="Money, equipment, supplies, your time..." required></textarea>
+                              placeholder="Money, equipment, supplies, your time…" required></textarea>
                 </div>
 
-                <div id="submit-section">
-                    <button type="button" class="btn btn-blue" style="width:100%;"
-                            onclick="showDonateOptions()">Donate Now</button>
-                </div>
-                <div id="donate-options" style="display:none;">
-                    <div class="form-actions">
-                        <button type="button" class="btn" style="background:#888;color:#fff;flex:1;"
-                                onclick="sendEmail()">📧 Send by Email</button>
-                        <button type="button" class="btn btn-green" style="flex:1;"
-                                onclick="sendWhatsapp()">💬 Send via WhatsApp</button>
-                    </div>
-                </div>
-            </div><!-- /.form-card -->
+                <button type="button" class="btn btn-blue" style="width:100%;"
+                        onclick="submitDonation()">Send Donation Enquiry</button>
+            </div>
 
-            <!-- Why donate summary -->
+            <!-- Why donate sidebar -->
             <div>
-                <h2 class="section-subheading" style="color:#1a7ab5;margin-top:0;">Your Impact</h2>
-                <ul style="list-style:disc;padding-left:20px;color:#444;line-height:2;">
-                    <li>Fund education materials and teacher salaries</li>
+                <h2 class="section-heading" style="margin-top:0;">Your Donation Helps</h2>
+                <ul style="list-style:disc;padding-left:20px;color:#444;line-height:2.1;font-size:0.92rem;">
+                    <li>Fund education materials and teaching resources</li>
                     <li>Keep therapy programmes running for every student</li>
-                    <li>Support community events and outreach</li>
+                    <li>Support community events and family outreach</li>
                     <li>Drive advocacy for disability rights in Kenya</li>
                     <li>Fund research into new therapeutic approaches</li>
+                    <li>Provide nutritious meals and kitchen facilities</li>
+                    <li>Maintain safe outdoor play spaces for students</li>
                 </ul>
-                <div style="margin-top:24px;padding:16px;background:#e8f5fc;border-radius:4px;border-left:4px solid #3CACE2;">
-                    <img src="Images/Logos/Globalgiving.png" alt="GlobalGiving"
-                         style="height:36px;margin-bottom:10px;">
+
+                <div style="margin-top:28px;padding:18px 20px;background:#e8f5fc;
+                            border-radius:4px;border-left:4px solid #3CACE2;">
+                    <p style="font-size:0.88rem;color:#1a7ab5;font-weight:700;margin-bottom:6px;">
+                        Contact us directly
+                    </p>
                     <p style="font-size:0.88rem;color:#555;line-height:1.6;">
-                        CPFC is listed on GlobalGiving — a trusted platform connecting donors worldwide
-                        with verified nonprofits making a real difference.
+                        You can also reach us by phone or email to discuss your donation:
+                    </p>
+                    <p style="font-size:0.88rem;margin-top:8px;">
+                        <a href="tel:+254735786495" style="color:#1a7ab5;">+254 735 786 495</a><br>
+                        <a href="tel:+254790505801" style="color:#1a7ab5;">+254 790 505 801</a><br>
+                        <a href="mailto:Cerebralpalsycentre@gmail.com" style="color:#1a7ab5;">
+                            Cerebralpalsycentre@gmail.com
+                        </a>
                     </p>
                 </div>
             </div>
 
         </div><!-- /.donate-layout -->
-
     </div><!-- /.content-wrap -->
 
     <script>
-        function showDonateOptions() {
-            document.getElementById('submit-section').style.display = 'none';
-            document.getElementById('donate-options').style.display = 'block';
-        }
+        function submitDonation() {
+            const firstName = document.getElementById('first-name').value.trim();
+            const lastName  = document.getElementById('last-name').value.trim();
+            const email     = document.getElementById('email').value.trim();
+            const details   = document.getElementById('donation-details').value.trim();
+            const errBox    = document.getElementById('form-error');
 
-        function gatherFormData() {
-            return {
-                firstName:       document.getElementById('first-name').value,
-                lastName:        document.getElementById('last-name').value,
-                email:           document.getElementById('email').value,
-                phoneNumber:     document.getElementById('phone-number').value,
-                donationDetails: document.getElementById('donation-details').value
-            };
-        }
+            // Validation
+            const missing = [];
+            if (!firstName) missing.push('First Name');
+            if (!lastName)  missing.push('Last Name');
+            if (!email)     missing.push('Email Address');
+            if (!details)   missing.push('Donation details');
 
-        function sendEmail() {
-            var f = gatherFormData();
-            var body = `Dear Cerebral Palsy Foundation Centre,\n\nI am ${f.firstName} ${f.lastName}. I would like to donate ${f.donationDetails}.\n\nPlease contact me on ${f.phoneNumber} or ${f.email}.\n\nKind Regards,\n${f.firstName} ${f.lastName}`;
-            window.location.href = `mailto:cerebralpalsycentre@gmail.com?subject=Donation Enquiry&body=${encodeURIComponent(body)}`;
-        }
+            if (missing.length > 0) {
+                errBox.textContent = 'Please fill in the following fields: ' + missing.join(', ') + '.';
+                errBox.style.display = 'block';
+                return;
+            }
 
-        function sendWhatsapp() {
-            var f = gatherFormData();
-            var msg = `Hi, I have come from your website.\nWhat I would like to donate: ${f.donationDetails}\n\nMy Name is ${f.firstName} ${f.lastName}\nMy number is: ${f.phoneNumber}\nMy email is: ${f.email}`;
-            window.open(`https://wa.me/254735786495?text=${encodeURIComponent(msg)}`, '_blank');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                errBox.textContent = 'Please enter a valid email address.';
+                errBox.style.display = 'block';
+                return;
+            }
+
+            errBox.style.display = 'none';
+
+            const body = `Dear Cerebral Palsy Foundation Centre,\n\nI am ${firstName} ${lastName} and I would like to donate: ${details}.\n\nPlease contact me at: ${email}\n\nKind regards,\n${firstName} ${lastName}`;
+            window.location.href = `mailto:cerebralpalsycentre@gmail.com?subject=Donation Enquiry from ${firstName} ${lastName}&body=${encodeURIComponent(body)}`;
         }
     </script>
 
