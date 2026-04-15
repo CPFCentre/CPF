@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog – CPFC Mombasa</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="page-body">
+
+    <div class="page-banner">
+        <img src="Images/Logos/Navpicture.jpg" alt="CPFC Blog">
+        <div class="banner-overlay">
+            <h1 class="banner-title">Blog</h1>
+        </div>
+    </div>
+
+    <div class="content-wrap">
+        <h2 class="section-heading">Welcome to Our Blog</h2>
+        <p style="margin-bottom:24px;color:#555;">
+            Stories, updates, and news from the Cerebral Palsy Foundation Centre community.
+        </p>
+
+        <!--
+        ╔══════════════════════════════════════════════════════════════╗
+        ║  BLOG POST REGISTRY  —  HOW TO ADD A NEW POST               ║
+        ╠══════════════════════════════════════════════════════════════╣
+        ║  1. Copy  Blogs/_blog_template.html  to                     ║
+        ║     Blogs/your_post_slug.html                               ║
+        ║  2. Fill in the METADATA block at the top of that file.     ║
+        ║  3. Add a new <tr> entry below following the same pattern.  ║
+        ║  That's it — no build step, no server required.             ║
+        ╚══════════════════════════════════════════════════════════════╝
+        -->
+        <table class="blog-listing">
+
+            <!-- POST: 2024 CPF Walk -->
+            <tr>
+                <td class="blog-thumb">
+                    <a href="Blogs/2024CPFwalk_blog.html">
+                        <img src="Images/walk3.jpg" alt="CPF 2024 Walk">
+                    </a>
+                </td>
+                <td class="blog-info">
+                    <h3><a href="Blogs/2024CPFwalk_blog.html">CPF 2024 Walk: A Celebration of Unity and Inclusion</a></h3>
+                    <p class="blog-meta">17 January 2024 &bull; Nabeel Chakera</p>
+                    <p class="blog-excerpt">A heartfelt look at the CPF 2024 Walk held at the Butterfly Pavilion
+                    in Mombasa — a celebration of unity, talent, and the limitless potential of every individual.</p>
+                </td>
+            </tr>
+
+            <!-- POST: New Playground -->
+            <tr>
+                <td class="blog-thumb">
+                    <a href="Blogs/Newplayground_blog.html">
+                        <img src="Images/Playground1.jpg" alt="New Playground">
+                    </a>
+                </td>
+                <td class="blog-info">
+                    <h3><a href="Blogs/Newplayground_blog.html">New Playground Sponsored by Australian Company</a></h3>
+                    <p class="blog-meta">2024 &bull; CPFC</p>
+                    <p class="blog-excerpt">Thanks to a generous international sponsor, CPFC's students now have
+                    a brand-new accessible playground — a space for joy, play, and development.</p>
+                </td>
+            </tr>
+
+            <!-- POST: New Fridge -->
+            <tr>
+                <td class="blog-thumb">
+                    <a href="Blogs/Newfridge_blog.html">
+                        <img src="Images/Fridge.jpg" alt="New Fridge">
+                    </a>
+                </td>
+                <td class="blog-info">
+                    <h3><a href="Blogs/Newfridge_blog.html">New Fridge, Oven, and Microwave</a></h3>
+                    <p class="blog-meta">2024 &bull; CPFC</p>
+                    <p class="blog-excerpt">Thanks to generous donations, our kitchen has received a major upgrade —
+                    improving the nutrition and wellbeing of our students every single day.</p>
+                </td>
+            </tr>
+
+            <!-- POST: Swimming Pool Trip -->
+            <tr>
+                <td class="blog-thumb">
+                    <a href="Blogs/Swimmingpooltrip_blog.html">
+                        <img src="Images/Walkers.jpg" alt="Swimming Pool Trip">
+                    </a>
+                </td>
+                <td class="blog-info">
+                    <h3><a href="Blogs/Swimmingpooltrip_blog.html">Swimming Pool Trip</a></h3>
+                    <p class="blog-meta">2024 &bull; CPFC</p>
+                    <p class="blog-excerpt">Our students enjoyed a memorable outing to the local swimming pool —
+                    a chance to experience aquatic activity in a fun and social setting.</p>
+                </td>
+            </tr>
+
+            <!-- ADD NEW POSTS ABOVE HERE
+            <!-- ═══ ADD NEW POSTS ABOVE THIS LINE ═══
+            <tr>
+                <td class="blog-thumb">
+                    <a href="Blogs/YOUR_SLUG.html">
+                        <img src="Images/YOUR_IMAGE.jpg" alt="Post thumbnail">
+                    </a>
+                </td>
+                <td class="blog-info">
+                    <h3><a href="Blogs/YOUR_SLUG.html">Your Post Title Here</a></h3>
+                    <p class="blog-meta">DD Month YYYY &bull; Author Name</p>
+                    <p class="blog-excerpt">One or two sentence summary of the post.</p>
+                </td>
+            </tr>
+            -->
+
+            <!-- ADD NEW POSTS ABOVE HERE -->
+
+        </table>
+    </div><!-- /.content-wrap -->
+
+    <script src="components.js"></script>
+    <script>loadComponents('Blog');</script>
+</body>
+</html>

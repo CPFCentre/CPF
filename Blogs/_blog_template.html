@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--
+    ╔══════════════════════════════════════════════════════════════════════╗
+    ║  HOW TO CREATE A NEW BLOG POST                                       ║
+    ╠══════════════════════════════════════════════════════════════════════╣
+    ║  1. Save a copy of this file as  Blogs/your-post-slug.html          ║
+    ║  2. Fill in every field marked  ← CHANGE THIS                       ║
+    ║  3. Write your post content inside the  <div class="post-body">     ║
+    ║  4. Add a thumbnail row to  Blog.html  (see comments there)         ║
+    ║  5. Done — no build step needed.                                     ║
+    ╚══════════════════════════════════════════════════════════════════════╝
+    -->
+
+    <!-- ═══ POST METADATA — CHANGE THESE ═══ -->
+    <title>Post Title Here – CPFC Blog</title>          <!-- ← CHANGE THIS -->
+    <!-- ════════════════════════════════════ -->
+
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="page-body">
+
+    <div class="page-banner">
+        <img src="../Images/Logos/Navpicture.jpg" alt="Blog">
+        <div class="banner-overlay">
+            <h1 class="banner-title">Blog</h1>
+        </div>
+    </div>
+
+    <div class="blog-post-wrap">
+
+        <!-- ═══ MAIN POST CONTENT ═══ -->
+        <main class="blog-post-main">
+
+            <!-- Hero image for this post -->
+            <img class="hero-img"
+                 src="../Images/YOUR_IMAGE.jpg"          <!-- ← CHANGE THIS -->
+                 alt="Post hero image">
+
+            <!-- Post title -->
+            <h2>Post Title Here</h2>                     <!-- ← CHANGE THIS -->
+
+            <!-- Meta line -->
+            <p class="blog-post-meta">
+                <strong>Author:</strong> Author Name &nbsp;&bull;&nbsp;  <!-- ← CHANGE THIS -->
+                <strong>Date:</strong> DD Month YYYY                      <!-- ← CHANGE THIS -->
+            </p>
+
+            <!--
+            ════════════════════════════════════════════════════════
+             POST BODY — write your content here.
+             Available helpers:
+               • Paragraph        <p>...</p>
+               • Image right      <img style="width:45%;float:right;margin:0 0 14px 18px;" src="../Images/X.jpg" alt="">
+               • Image left       <img style="width:45%;float:left;margin:0 18px 14px 0;" src="../Images/X.jpg" alt="">
+               • Subheading       <h3>Subheading</h3>
+               • Bold             <strong>text</strong>
+             Remember to clear floats with  <div style="clear:both"></div>  if needed.
+            ════════════════════════════════════════════════════════
+            -->
+            <div class="post-body">
+
+                <p>Write your opening paragraph here...</p>
+
+                <p>Continue your story here...</p>
+
+                <!-- Example of a floated image: -->
+                <!-- <img style="width:45%;float:right;margin:0 0 14px 18px;" src="../Images/walk1.jpg" alt="Walk photo"> -->
+
+                <p>More content...</p>
+
+                <div style="clear:both"></div>
+
+            </div><!-- /.post-body -->
+
+        </main>
+
+        <!-- ═══ SIDEBAR ═══ -->
+        <aside class="blog-sidebar">
+
+            <div class="sidebar-section">
+                <h3>Other Posts</h3>
+
+                <!-- Repeat this block for each related post -->
+                <div class="sidebar-post">
+                    <a href="2024CPFwalk_blog.html">
+                        <img src="../Images/walk3.jpg" alt="CPF Walk">
+                    </a>
+                    <p><a href="2024CPFwalk_blog.html">CPF 2024 Walk: A Celebration of Unity and Inclusion</a></p>
+                </div>
+
+                <div class="sidebar-post">
+                    <a href="Newplayground_blog.html">
+                        <img src="../Images/Playground1.jpg" alt="New Playground">
+                    </a>
+                    <p><a href="Newplayground_blog.html">New Playground Sponsored by Australian Company</a></p>
+                </div>
+
+                <div class="sidebar-post">
+                    <a href="Newfridge_blog.html">
+                        <img src="../Images/Fridge.jpg" alt="New Fridge">
+                    </a>
+                    <p><a href="Newfridge_blog.html">New Fridge, Oven, and Microwave</a></p>
+                </div>
+
+                <div class="sidebar-post">
+                    <a href="Swimmingpooltrip_blog.html">
+                        <img src="../Images/Walkers.jpg" alt="Swimming Pool">
+                    </a>
+                    <p><a href="Swimmingpooltrip_blog.html">Swimming Pool Trip</a></p>
+                </div>
+
+                <!--
+                To add a new post to the sidebar, paste:
+                <div class="sidebar-post">
+                    <a href="YOUR_SLUG.html"><img src="../Images/YOUR_IMAGE.jpg" alt=""></a>
+                    <p><a href="YOUR_SLUG.html">Your Post Title</a></p>
+                </div>
+                -->
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Student Stories</h3>
+                <div class="sidebar-post">
+                    <a href="2024CPFwalk_blog.html">
+                        <img src="../Images/walk3.jpg" alt="CPF Walk">
+                    </a>
+                    <p><a href="2024CPFwalk_blog.html">CPF 2024 Walk: A Celebration of Unity and Inclusion</a></p>
+                </div>
+            </div>
+
+        </aside>
+
+    </div><!-- /.blog-post-wrap -->
+
+    <script src="../components.js"></script>
+    <script>loadComponents('Blog');</script>
+</body>
+</html>
