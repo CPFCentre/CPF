@@ -90,16 +90,23 @@
                 const text = await res.text();
                 const doc  = new DOMParser().parseFromString(text, 'text/html');
 
-                /* Blog.html uses .blog-card elements after we update it below */
-                const cards = [...doc.querySelectorAll('.blog-card')].slice(0, 3);
+                /* Blog.html uses .blog-card elements after we update it below.
+                   Sort by date descending so home always shows the latest posts. */
+                const cards = [...doc.querySelectorAll('.blog-card')];
+                cards.sort((a, b) => {
+                    const da = a.dataset.date || '1900-01-01';
+                    const db = b.dataset.date || '1900-01-01';
+                    return db.localeCompare(da); // newest first
+                });
+                const latest = cards.slice(0, 3);
 
                 const grid = document.getElementById('home-blog-grid');
-                if (cards.length === 0) {
+                if (latest.length === 0) {
                     grid.innerHTML = '<p style="color:#aaa;">No posts yet.</p>';
                     return;
                 }
                 grid.innerHTML = '';
-                cards.forEach(card => {
+                latest.forEach(card => {
                     /* Clone and fix relative paths (Blog.html is in same dir) */
                     const clone = card.cloneNode(true);
                     /* href on the card itself */
