@@ -27,71 +27,24 @@
         <!-- Blog card grid — newest first (data-date used for sort) -->
         <div class="blog-grid" id="blog-grid">
 
-                        <!-- POST: Test 2 -->
-            <a class="blog-card" href="Blogs/test_2.html"
-               data-date="2026-04-15" data-student="false"
-               data-title="Test 2"
-               data-author="Nabeel Chakera">
-                <div class="blog-card-thumb">
-                    <img src="Images/Logos/Navpicture.jpg" alt="Test 2" loading="lazy">
-                </div>
-                <div class="blog-card-body">
-                    <span class="blog-card-tag">Post</span>
-                    <h3>Test 2</h3>
-                    <p class="blog-card-meta">15 April 2026 &bull; Nabeel Chakera</p>
-                    <p class="blog-card-excerpt">test 1 test 1 test 1 test 1 test 1 test 1 abc  @#</p>
-                    <span class="blog-card-read-more">Read more &rarr;</span>
-                </div>
-            </a>
-                        <!-- POST: Test 3 -->
-            <a class="blog-card" href="Blogs/test_3.html"
-               data-date="2026-04-15" data-student="false"
-               data-title="Test 3"
-               data-author="Nabeel Chakera">
-                <div class="blog-card-thumb">
-                    <img src="Images/test_3_1920097/was.jpeg" alt="Test 3" loading="lazy">
-                </div>
-                <div class="blog-card-body">
-                    <span class="blog-card-tag">Post</span>
-                    <h3>Test 3</h3>
-                    <p class="blog-card-meta">15 April 2026 &bull; Nabeel Chakera</p>
-                    <p class="blog-card-excerpt">test 3 test 1 test 1 test 1 test 1 test 1 abc  @#</p>
-                    <span class="blog-card-read-more">Read more &rarr;</span>
-                </div>
-            </a>
-                        <!-- POST: Test 4 -->
-            <a class="blog-card" href="Blogs/test_4.html"
-               data-date="2026-04-15" data-student="true"
-               data-title="Test 4"
-               data-author="Nabeel Chakera">
-                <div class="blog-card-thumb">
-                    <img src="Images/test_4_194ef59/was.jpeg" alt="Test 4" loading="lazy">
-                </div>
-                <div class="blog-card-body">
-                    <span class="blog-card-tag student">Student Story</span>
-                    <h3>Test 4</h3>
-                    <p class="blog-card-meta">15 April 2026 &bull; Nabeel Chakera</p>
-                    <p class="blog-card-excerpt">test 3 test 1 test 1 test 1 test 1 test 1 abc  @#</p>
-                    <span class="blog-card-read-more">Read more &rarr;</span>
-                </div>
-            </a>
-                        <!-- POST: How my day at school was -->
-            <a class="blog-card" href="Blogs/how_my_day_at_school_was.html"
-               data-date="2026-04-16" data-student="true"
-               data-title="How my day at school was"
-               data-author="Nabeel Chakera">
-                <div class="blog-card-thumb">
-                    <img src="Images/how_my_day_at_school_was_4c6c181/IMG-20250911-WA0005.jpg" alt="How my day at school was" loading="lazy">
-                </div>
-                <div class="blog-card-body">
-                    <span class="blog-card-tag student">Student Story</span>
-                    <h3>How my day at school was</h3>
-                    <p class="blog-card-meta">16 April 2026 &bull; Nabeel Chakera</p>
-                    <p class="blog-card-excerpt">talking how my day was today</p>
-                    <span class="blog-card-read-more">Read more &rarr;</span>
-                </div>
-            </a>
             <!-- ADD NEW POSTS ABOVE HERE -->
+
+            <!-- POST: Swimming Therapy at CPF -->
+            <a class="blog-card" href="Blogs/Swimmingpooltrip_blog.html"
+               data-date="2024-01-17" data-student="false"
+               data-title="Swimming Therapy at CPF"
+               data-author="Nabeel Chakera">
+                <div class="blog-card-thumb">
+                    <img src="Images/Walkers.jpg" alt="Swimming Therapy at CPF" loading="lazy">
+                </div>
+                <div class="blog-card-body">
+                    <span class="blog-card-tag">Post</span>
+                    <h3>Swimming Therapy at CPF</h3>
+                    <p class="blog-card-meta">17 January 2024 &bull; Nabeel Chakera</p>
+                    <p class="blog-card-excerpt">Our students enjoyed a memorable outing to the local swimming pool — a chance to experience aquatic activity in a fun and social setting.</p>
+                    <span class="blog-card-read-more">Read more &rarr;</span>
+                </div>
+            </a>
 
             <!-- POST: New Fridge, Oven, and Microwave -->
             <a class="blog-card" href="Blogs/Newfridge_blog.html"
@@ -172,11 +125,14 @@
             const cards = document.querySelectorAll('#blog-grid .blog-card');
             let visible = 0;
             cards.forEach(c => {
+                const tagText = c.querySelector('.blog-card-tag')?.textContent || '';
                 const haystack = [
                     c.dataset.title  || '',
                     c.dataset.author || '',
                     c.dataset.date   || '',
-                    c.querySelector('.blog-card-excerpt')?.textContent || ''
+                    c.querySelector('.blog-card-excerpt')?.textContent || '',
+                    tagText,
+                    c.dataset.student === 'true' ? 'student story' : ''
                 ].join(' ').toLowerCase();
                 const show = !q || haystack.includes(q);
                 c.style.display = show ? '' : 'none';

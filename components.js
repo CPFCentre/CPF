@@ -87,7 +87,7 @@ function loadComponents(activePage) {
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2024 Cerebral Palsy Foundation Centre, Mombasa. All rights reserved.</p>
+        <p>&copy; <span id="cpfc-year"></span> Cerebral Palsy Foundation Centre, Mombasa. All rights reserved.</p>
         <p>Developed and managed by Nabeel Chakera &mdash; <a href="mailto:Nabeelchakera@gmail.com">Nabeelchakera@gmail.com</a></p>
       </div>
     </footer>`;
@@ -95,9 +95,64 @@ function loadComponents(activePage) {
     document.body.insertAdjacentHTML('afterbegin', navHTML);
     document.body.insertAdjacentHTML('beforeend', footerHTML);
 
+    // Auto-update copyright year
+    const yearEl = document.getElementById('cpfc-year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // Dynamic sidebar: remove links to deleted posts + inject latest student story
+    if (document.querySelector('.blog-sidebar')) {
+        _fixSidebar();
+    }
+
     document.getElementById('hamburger').addEventListener('click', function () {
         const links = document.getElementById('nav-links');
         const open  = links.classList.toggle('open');
         this.setAttribute('aria-expanded', open);
     });
 }
+
+/* ── Sidebar maintenance: prune dead links, inject latest student story ── */
+async function _fixSidebar() {
+    try {
+        const res  = await fetch('../Blog.html');
+        const text = await res.text();
+        const doc  = new DOMParser().parseFromString(text, 'text/html');
+
+        // Collect all live blog slugs from Blog.html
+        const liveHrefs = new Set(
+            [...doc.querySelectorAll('.blog-card')].map(c => c.getAttribute('href').split('/').pop())
+        );
+
+        // Remove sidebar-post links whose href points to a deleted post
+        document.querySelectorAll('.sidebar-post a').forEach(a => {
+            const slug = a.getAttribute('href');
+            if (slug && !liveHrefs.has(slug)) {
+                const postDiv = a.closest('.sidebar-post');
+                if (postDiv) postDiv.remove();
+            }
+        });
+
+        // Inject latest student story into sidebar sections titled "Student Stories"
+        const studentCards = [...doc.querySelectorAll('.blog-card[data-student="true"]')]
+            .sort((a,b) => (b.dataset.date||'').localeCompare(a.dataset.date||''));
+        if (studentCards.length > 0) {
+            const latest = studentCards[0];
+            const slug   = latest.getAttribute('href').split('/').pop();
+            const title  = latest.dataset.title || latest.querySelector('h3')?.textContent || 'Student Story';
+            const thumb  = latest.querySelector('img')?.getAttribute('src') || '';
+            const thumbRel = thumb.replace(/^\.\.\//, '../');
+            document.querySelectorAll('.sidebar-section h3').forEach(h3 => {
+                if (h3.textContent.trim().toLowerCase().includes('student')) {
+                    // Clear and re-populate
+                    h3.parentElement.querySelectorAll('.sidebar-post').forEach(el => el.remove());
+                    const div = document.createElement('div');
+                    div.className = 'sidebar-post';
+                    div.innerHTML = `<a href="${slug}"><img src="${thumbRel}" alt="" loading="lazy"></a>`
+                                  + `<p><a href="${slug}">${title}</a></p>`;
+                    h3.parentElement.appendChild(div);
+                }
+            });
+        }
+    } catch(e) {
+        // Silently fail if Blog.html can't be fetched (e.g., offline)
+    }
