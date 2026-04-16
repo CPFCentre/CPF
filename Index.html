@@ -91,7 +91,7 @@
                 const doc  = new DOMParser().parseFromString(text, 'text/html');
 
                 /* Blog.html uses .blog-card elements after we update it below */
-                const cards = [...doc.querySelectorAll('.blog-card')].reverse().slice(0, 3);
+                const cards = [...doc.querySelectorAll('.blog-card')].slice(0, 3);
 
                 const grid = document.getElementById('home-blog-grid');
                 if (cards.length === 0) {
