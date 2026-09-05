@@ -85,8 +85,28 @@
 
         /* ── Fetch Blog.html and pull out the latest 3 posts ── */
         (async function loadLatestPosts() {
+            const grid = document.getElementById('home-blog-grid');
+
+            function showFallbackPost() {
+                grid.innerHTML = `
+                    <a class="blog-card" href="Blogs/2024CPFwalk_blog.html">
+                        <div class="blog-card-thumb">
+                            <img src="Images/1x1/1618335_834904646575865_3338131726613972555_o(1).jpg"
+                                 alt="Dahlia Cerebral Palsy C.B.O 2024 Walk" loading="lazy" width="800" height="800">
+                        </div>
+                        <div class="blog-card-body">
+                            <span class="blog-card-tag student">Student Story</span>
+                            <h3>Dahlia Cerebral Palsy C.B.O 2024 Walk: A Celebration of Unity and Inclusion</h3>
+                            <p class="blog-card-meta">17 January 2024 &bull; Nabeel Chakera</p>
+                            <p class="blog-card-excerpt">A heartfelt look at the Dahlia Cerebral Palsy C.B.O 2024 Walk held at the Butterfly Pavilion in Mombasa.</p>
+                            <span class="blog-card-read-more">Read more &rarr;</span>
+                        </div>
+                    </a>`;
+            }
+
             try {
                 const res  = await fetch('Blog.html');
+                if (!res.ok) throw new Error(`Blog.html returned ${res.status}`);
                 const text = await res.text();
                 const doc  = new DOMParser().parseFromString(text, 'text/html');
 
@@ -100,7 +120,6 @@
                 });
                 const latest = cards.slice(0, 3);
 
-                const grid = document.getElementById('home-blog-grid');
                 if (latest.length === 0) {
                     grid.innerHTML = '<p style="color:#aaa;">No posts yet.</p>';
                     return;
@@ -114,8 +133,7 @@
                     grid.appendChild(clone);
                 });
             } catch (e) {
-                document.getElementById('home-blog-grid').innerHTML =
-                    '<p style="color:#aaa;">Could not load latest posts.</p>';
+                showFallbackPost();
             }
         })();
     </script>
