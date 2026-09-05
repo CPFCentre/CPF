@@ -11,8 +11,8 @@ function loadComponents(activePage) {
     <nav id="main-nav">
       <div class="logo">
         <a href="${root}Index.html">
-          <img src="${root}Images/Logos/Black.png" alt="CPFC Logo">
-          <span class="site-name">Cerebral Palsy<br>Foundation Centre</span>
+          <img src="${root}Images/Logos/Black.png" alt="Dahlia Cerebral Palsy C.B.O Logo">
+          <span class="site-name">Dahlia Cerebral<br>Palsy C.B.O</span>
         </a>
       </div>
       <div class="nav-links" id="nav-links">
@@ -39,8 +39,8 @@ function loadComponents(activePage) {
       <div class="footer-content">
         <section class="footer-about">
           <div class="footer-logo-wrap">
-            <img src="${root}Images/Logos/Black.png" alt="CPFC" class="footer-logo">
-            <span class="footer-brand-name">Cerebral Palsy<br>Foundation Centre</span>
+            <img src="${root}Images/Logos/Black.png" alt="Dahlia Cerebral Palsy C.B.O" class="footer-logo">
+            <span class="footer-brand-name">Dahlia Cerebral<br>Palsy C.B.O</span>
           </div>
           <p class="footer-tagline">Supporting children with special needs through education, therapy and community in Mombasa, Kenya.</p>
         </section>
@@ -87,7 +87,7 @@ function loadComponents(activePage) {
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; <span id="cpfc-year"></span> Cerebral Palsy Foundation Centre, Mombasa. All rights reserved.</p>
+        <p>&copy; <span id="cpfc-year"></span> Dahlia Cerebral Palsy C.B.O, Mombasa. All rights reserved.</p>
         <p>Developed and managed by Nabeel Chakera &mdash; <a href="mailto:Nabeelchakera@gmail.com">Nabeelchakera@gmail.com</a></p>
       </div>
     </footer>`;
