@@ -122,11 +122,49 @@ async function _fixSidebar() {
         const res  = await fetch('../Blog.html');
         const text = await res.text();
         const doc  = new DOMParser().parseFromString(text, 'text/html');
+    const currentSlug = window.location.pathname.split('/').pop();
+    const cards = [...doc.querySelectorAll('.blog-card')]
+      .map(card => ({
+        slug: card.getAttribute('href').split('/').pop(),
+        date: card.dataset.date || '1900-01-01',
+        title: card.dataset.title || card.querySelector('h3')?.textContent || 'Blog post',
+        thumb: card.querySelector('img')?.getAttribute('src') || '',
+        isStudent: card.dataset.student === 'true'
+      }))
+      .sort((a, b) => b.date.localeCompare(a.date));
+
+    // Rebuild related posts from the live blog index so new posts appear automatically.
+    document.querySelectorAll('.sidebar-section h3').forEach(h3 => {
+      if (!h3.textContent.trim().toLowerCase().includes('other')) return;
+      const section = h3.parentElement;
+      section.querySelectorAll('.sidebar-post').forEach(el => el.remove());
+      cards.filter(card => card.slug !== currentSlug).slice(0, 5).forEach(card => {
+        const post = document.createElement('div');
+        post.className = 'sidebar-post';
+
+        const link = document.createElement('a');
+        link.href = card.slug;
+        const image = document.createElement('img');
+        image.src = card.thumb.startsWith('../') || card.thumb.startsWith('http')
+          ? card.thumb : `../${card.thumb}`;
+        image.alt = card.title;
+        image.loading = 'lazy';
+        link.appendChild(image);
+
+        const textLink = document.createElement('a');
+        textLink.href = card.slug;
+        textLink.textContent = card.title;
+        const text = document.createElement('p');
+        text.appendChild(textLink);
+
+        post.append(link, text);
+        section.appendChild(post);
+      });
+      section.style.display = cards.some(card => card.slug !== currentSlug) ? '' : 'none';
+    });
 
         // Collect all live blog slugs from Blog.html
-        const liveHrefs = new Set(
-            [...doc.querySelectorAll('.blog-card')].map(c => c.getAttribute('href').split('/').pop())
-        );
+    const liveHrefs = new Set(cards.map(card => card.slug));
 
         // Remove sidebar-post links whose href points to a deleted post
         document.querySelectorAll('.sidebar-post a').forEach(a => {
@@ -138,22 +176,29 @@ async function _fixSidebar() {
         });
 
         // Inject latest student story into sidebar sections titled "Student Stories"
-        const studentCards = [...doc.querySelectorAll('.blog-card[data-student="true"]')]
-            .sort((a,b) => (b.dataset.date||'').localeCompare(a.dataset.date||''));
+        const studentCards = cards.filter(card => card.isStudent);
         if (studentCards.length > 0) {
             const latest = studentCards[0];
-            const slug   = latest.getAttribute('href').split('/').pop();
-            const title  = latest.dataset.title || latest.querySelector('h3')?.textContent || 'Student Story';
-            const thumb  = latest.querySelector('img')?.getAttribute('src') || '';
-            const thumbRel = thumb.replace(/^\.\.\//, '../');
             document.querySelectorAll('.sidebar-section h3').forEach(h3 => {
                 if (h3.textContent.trim().toLowerCase().includes('student')) {
                     // Clear and re-populate
                     h3.parentElement.querySelectorAll('.sidebar-post').forEach(el => el.remove());
                     const div = document.createElement('div');
                     div.className = 'sidebar-post';
-                    div.innerHTML = `<a href="${slug}"><img src="${thumbRel}" alt="" loading="lazy"></a>`
-                                  + `<p><a href="${slug}">${title}</a></p>`;
+                    const link = document.createElement('a');
+                    link.href = latest.slug;
+                    const image = document.createElement('img');
+                    image.src = latest.thumb.startsWith('../') || latest.thumb.startsWith('http')
+                      ? latest.thumb : `../${latest.thumb}`;
+                    image.alt = latest.title;
+                    image.loading = 'lazy';
+                    link.appendChild(image);
+                    const textLink = document.createElement('a');
+                    textLink.href = latest.slug;
+                    textLink.textContent = latest.title;
+                    const text = document.createElement('p');
+                    text.appendChild(textLink);
+                    div.append(link, text);
                     h3.parentElement.appendChild(div);
                 }
             });
