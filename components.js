@@ -95,6 +95,11 @@ function loadComponents(activePage) {
     document.body.insertAdjacentHTML('afterbegin', navHTML);
     document.body.insertAdjacentHTML('beforeend', footerHTML);
 
+    // Inject smooth scrolling CSS
+    const style = document.createElement('style');
+    style.textContent = 'html { scroll-behavior: smooth; }';
+    document.head.appendChild(style);
+
     // Auto-update copyright year
     const yearEl = document.getElementById('cpfc-year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -156,3 +161,5 @@ async function _fixSidebar() {
     } catch(e) {
         // Silently fail if Blog.html can't be fetched (e.g., offline)
     }
+}
+
