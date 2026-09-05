@@ -132,6 +132,11 @@ async function _fixSidebar() {
         isStudent: card.dataset.student === 'true'
       }))
       .sort((a, b) => b.date.localeCompare(a.date));
+    const blogUrl = new URL('../Blog.html', document.baseURI);
+    const resolveThumb = path => {
+      try { return new URL(path, blogUrl).href; }
+      catch { return path; }
+    };
 
     // Rebuild related posts from the live blog index so new posts appear automatically.
     document.querySelectorAll('.sidebar-section h3').forEach(h3 => {
@@ -145,8 +150,7 @@ async function _fixSidebar() {
         const link = document.createElement('a');
         link.href = card.slug;
         const image = document.createElement('img');
-        image.src = card.thumb.startsWith('../') || card.thumb.startsWith('http')
-          ? card.thumb : `../${card.thumb}`;
+        image.src = resolveThumb(card.thumb);
         image.alt = card.title;
         image.loading = 'lazy';
         link.appendChild(image);
@@ -188,8 +192,7 @@ async function _fixSidebar() {
                     const link = document.createElement('a');
                     link.href = latest.slug;
                     const image = document.createElement('img');
-                    image.src = latest.thumb.startsWith('../') || latest.thumb.startsWith('http')
-                      ? latest.thumb : `../${latest.thumb}`;
+                    image.src = resolveThumb(latest.thumb);
                     image.alt = latest.title;
                     image.loading = 'lazy';
                     link.appendChild(image);
