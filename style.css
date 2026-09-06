@@ -17,7 +17,17 @@ body {
 img { max-width: 100%; height: auto; display: block; }
 a   { text-decoration: none; color: inherit; }
 a:hover { text-decoration: underline; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+    outline: 3px solid #ffbf47;
+    outline-offset: 2px;
+}
 ul  { list-style: none; }
+.skip-link {
+    position: fixed; left: 12px; top: -48px; z-index: 2000;
+    background: #163f59; color: #ffffff; padding: 10px 14px;
+    font-weight: 700; border-radius: 0 0 4px 4px;
+}
+.skip-link:focus { top: 0; color: #ffffff; text-decoration: none; }
 
 /* ── NAV ── */
 nav {
@@ -326,6 +336,15 @@ nav {
 .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #3CACE2; }
 .form-group textarea { resize: vertical; min-height: 90px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-consent { display: flex; align-items: flex-start; gap: 9px; margin: 4px 0 16px; font-size: 0.8rem; line-height: 1.5; color: #444; }
+.form-consent input { width: 17px; height: 17px; margin-top: 2px; flex: 0 0 auto; accent-color: #1a7ab5; }
+.form-consent a, .legal-page a { color: #1a7ab5; text-decoration: underline; text-underline-offset: 2px; }
+.form-consent a:focus, .legal-page a:focus { outline: 3px solid #ffbf47; outline-offset: 2px; }
+.legal-page { max-width: 860px; }
+.legal-page p { max-width: 76ch; margin-bottom: 16px; line-height: 1.8; color: #30434d; }
+.legal-page .legal-updated { color: #667984; font-size: 0.85rem; }
+.legal-list { list-style: disc; max-width: 76ch; padding-left: 24px; margin: 0 0 20px; color: #30434d; line-height: 1.8; }
+.legal-list li { margin-bottom: 6px; }
 
 .btn {
     display: inline-block; padding: 10px 22px;

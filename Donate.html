@@ -32,11 +32,9 @@
             to promote inclusivity and create environments where everyone feels valued and supported.</p>
             <img class="float-left" src="Images/1x1/1618335_834904646575865_3338131726613972555_o.jpg"
                   alt="Dahlia Cerebral Palsy C.B.O community" style="max-width:36%;" loading="lazy">
-            <p>DCP's focus on research and innovation drives advancements in understanding and treating
-            various disabilities. Donations fund research projects, technological innovations, and
-            therapeutic interventions aimed at improving outcomes and enhancing the quality of life for
-            individuals with disabilities. Empowerment programmes equip individuals with the skills,
-            training, and resources they need to live independently and achieve their goals.</p>
+            <p>DCP uses donations to support its education, therapy, community, and accessibility work.
+            Specific uses depend on current needs and available resources. Empowerment programmes aim to
+            provide individuals with skills, training, and practical support.</p>
         </div>
 
         <div class="donate-layout">
@@ -45,7 +43,7 @@
             <div class="form-card">
                 <h2>Donation Enquiry Form</h2>
 
-                <div id="form-error" style="display:none;color:#cc1f1f;font-size:0.85rem;
+                <div id="form-error" role="alert" aria-live="polite" style="display:none;color:#cc1f1f;font-size:0.85rem;
                      margin-bottom:12px;padding:8px 12px;background:#fff0f0;
                      border:1px solid #ffcccc;border-radius:4px;"></div>
 
@@ -53,25 +51,30 @@
                     <div class="form-group">
                         <label for="first-name">First Name <span style="color:#cc1f1f;">*</span></label>
                         <input type="text" id="first-name" name="firstName"
-                               placeholder="First name" required>
+                               placeholder="First name" autocomplete="given-name" required>
                     </div>
                     <div class="form-group">
                         <label for="last-name">Last Name <span style="color:#cc1f1f;">*</span></label>
                         <input type="text" id="last-name" name="lastName"
-                               placeholder="Last name" required>
+                               placeholder="Last name" autocomplete="family-name" required>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="email">Email Address <span style="color:#cc1f1f;">*</span></label>
                     <input type="email" id="email" name="email"
-                           placeholder="your@email.com" required>
+                              placeholder="your@email.com" autocomplete="email" required>
                 </div>
 
                 <div class="form-group">
                     <label for="donation-details">What would you like to donate? <span style="color:#cc1f1f;">*</span></label>
                     <textarea id="donation-details" name="donationDetails" rows="4"
                               placeholder="Money, equipment, supplies, your time…" required></textarea>
+                </div>
+
+                <div class="form-consent">
+                    <input type="checkbox" id="privacy-consent" required>
+                    <label for="privacy-consent">I agree that Dahlia Cerebral Palsy C.B.O may use the information I provide to respond to this enquiry. <a href="Privacy_policy.html">Read the Privacy Policy</a>.</label>
                 </div>
 
                 <button type="button" class="btn btn-blue" style="width:100%;"
@@ -86,7 +89,7 @@
                     <li>Keep therapy programmes running for every student</li>
                     <li>Support community events and family outreach</li>
                     <li>Drive advocacy for disability rights in Kenya</li>
-                    <li>Fund research into new therapeutic approaches</li>
+                    <li>Support education and therapy resources</li>
                     <li>Provide nutritious meals and kitchen facilities</li>
                     <li>Maintain safe outdoor play spaces for students</li>
                 </ul>
@@ -118,6 +121,7 @@
             const lastName  = document.getElementById('last-name').value.trim();
             const email     = document.getElementById('email').value.trim();
             const details   = document.getElementById('donation-details').value.trim();
+            const consent   = document.getElementById('privacy-consent').checked;
             const errBox    = document.getElementById('form-error');
 
             // Validation
@@ -126,6 +130,7 @@
             if (!lastName)  missing.push('Last Name');
             if (!email)     missing.push('Email Address');
             if (!details)   missing.push('Donation details');
+            if (!consent)   missing.push('Privacy consent');
 
             if (missing.length > 0) {
                 errBox.textContent = 'Please fill in the following fields: ' + missing.join(', ') + '.';

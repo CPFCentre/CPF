@@ -8,6 +8,7 @@ function loadComponents(activePage) {
     const root = isSubpage ? '../' : './';
 
     const navHTML = `
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <nav id="main-nav">
       <div class="logo">
         <a href="${root}Index.html">
@@ -64,6 +65,10 @@ function loadComponents(activePage) {
             <li><a href="${root}Blog.html">Blog</a></li>
             <li><a href="${root}Contact_us.html">Contact Us</a></li>
             <li><a href="${root}Donate.html">Donate</a></li>
+            <li><a href="${root}Privacy_policy.html">Privacy Policy</a></li>
+            <li><a href="${root}Terms_and_conditions.html">Terms</a></li>
+            <li><a href="${root}Cookie_policy.html">Cookies</a></li>
+            <li><a href="${root}Refund_policy.html">Refunds</a></li>
           </ul>
         </section>
 
@@ -94,6 +99,8 @@ function loadComponents(activePage) {
 
     document.body.insertAdjacentHTML('afterbegin', navHTML);
     document.body.insertAdjacentHTML('beforeend', footerHTML);
+    const mainContent = document.querySelector('main, .content-wrap, .blog-post-wrap');
+    if (mainContent && !mainContent.id) mainContent.id = 'main-content';
 
     // Inject smooth scrolling CSS
     const style = document.createElement('style');
