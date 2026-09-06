@@ -68,7 +68,6 @@ function loadComponents(activePage) {
             <li><a href="${root}Privacy_policy.html">Privacy Policy</a></li>
             <li><a href="${root}Terms_and_conditions.html">Terms</a></li>
             <li><a href="${root}Cookie_policy.html">Cookies</a></li>
-            <li><a href="${root}Refund_policy.html">Refunds</a></li>
           </ul>
         </section>
 
