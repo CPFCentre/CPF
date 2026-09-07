@@ -145,7 +145,6 @@ nav {
 /* ── DONATE CTA BANNER ── */
 .donate-cta {
     background: #e8f5fc;
-    border: 1px solid #c5e2f3;
     border-radius: 0;
     padding: 20px 24px;
     margin: 28px 0;
@@ -454,7 +453,13 @@ footer ul a:hover { color: #ffffff; text-decoration: none; }
     .form-row { grid-template-columns: 1fr; }
     .article-body img.float-right,
     .article-body img.float-left,
-    .post-body img { float: none; max-width: 100%; margin: 0 0 16px 0; }
+    .post-body img {
+        float: none;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto;
+        margin: 0 0 16px 0;
+    }
     .blog-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
     .donate-cta { flex-direction: column; }
     .footer-content { grid-template-columns: 1fr; gap: 28px; }
