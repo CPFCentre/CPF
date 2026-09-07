@@ -38,7 +38,7 @@
             <form class="form-card" id="donation-form" onsubmit="return submitDonation(event)">
                 <h2>Donation Enquiry Form</h2>
 
-                <div id="form-error" role="alert" aria-live="polite" style="display:none;color:#cc1f1f;font-size:0.85rem;
+                 <div id="form-error" role="alert" aria-live="polite" style="display:none;color:#cc1f1f;font-size:0.85rem;
                      margin-bottom:12px;padding:8px 12px;background:#fff0f0;
                      border:1px solid #ffcccc;border-radius:0;"></div>
 
@@ -120,6 +120,10 @@
             const consent   = document.getElementById('privacy-consent').checked;
             const errBox    = document.getElementById('form-error');
 
+            errBox.style.color = '#cc1f1f';
+            errBox.style.background = '#fff0f0';
+            errBox.style.borderColor = '#ffcccc';
+
             // Validation
             const missing = [];
             if (!firstName) missing.push('First Name');
@@ -145,7 +149,13 @@
 
             const body = `Dear Dahlia Cerebral Palsy C.B.O,\n\nI am ${firstName} ${lastName} and I would like to donate: ${details}.\n\nPlease contact me at: ${email}\n\nKind regards,\n${firstName} ${lastName}`;
             const subject = `Donation Enquiry from ${firstName} ${lastName}`;
-            window.location.href = `mailto:info@cerebralpalsytudor.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            const mailto = `mailto:info@cerebralpalsytudor.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            errBox.style.color = '#1a7ab5';
+            errBox.style.background = '#e8f5fc';
+            errBox.style.borderColor = '#c5e2f3';
+            errBox.innerHTML = 'Opening your email app. If nothing happens, <a href="' + mailto + '">click here to email us directly</a>.';
+            errBox.style.display = 'block';
+            window.location.href = mailto;
             return false;
         }
     </script>
