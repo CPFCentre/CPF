@@ -13,7 +13,7 @@ function loadComponents(activePage) {
       <div class="logo">
         <a href="${root}Index.html">
           <img src="${root}Images/Logos/Black.png" alt="Dahlia Cerebral Palsy C.B.O Logo">
-          <span class="site-name">Dahlia Cerebral<br>Palsy C.B.O</span>
+          <span class="site-name">Dahlia Cerebral Palsy<br>Community Based Organization</span>
         </a>
       </div>
       <div class="nav-links" id="nav-links">
@@ -41,9 +41,9 @@ function loadComponents(activePage) {
         <section class="footer-about">
           <div class="footer-logo-wrap">
             <img src="${root}Images/Logos/Black.png" alt="Dahlia Cerebral Palsy C.B.O" class="footer-logo">
-            <span class="footer-brand-name">Dahlia Cerebral<br>Palsy C.B.O</span>
+            <span class="footer-brand-name">Dahlia Cerebral Palsy<br>Community Based Organization</span>
           </div>
-          <p class="footer-tagline">Supporting children with special needs through education, therapy and community in Mombasa, Kenya.</p>
+            <p class="footer-tagline">A non-profit organisation providing rehabilitation, special needs education, therapy and vocational training in Mombasa, Kenya.</p>
         </section>
 
         <section>
@@ -51,8 +51,8 @@ function loadComponents(activePage) {
           <address>
             <p><a href="tel:+254735786495">+254 735 786 495</a></p>
             <p><a href="tel:+254790505801">+254 790 505 801</a></p>
-            <p><a href="mailto:Cerebralpalsycentre@gmail.com">Cerebralpalsycentre@gmail.com</a></p>
-            <p>Tudor, Mombasa, Kenya</p>
+            <p><a href="mailto:info@cerebralpalsytudor.com">info@cerebralpalsytudor.com</a></p>
+            <p>P.O. Box 377, 80100<br>Mombasa, Kenya</p>
           </address>
         </section>
 
