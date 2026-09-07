@@ -35,7 +35,7 @@
         <div class="donate-layout">
 
             <!-- Donation form -->
-            <div class="form-card">
+            <form class="form-card" id="donation-form" onsubmit="return submitDonation(event)">
                 <h2>Donation Enquiry Form</h2>
 
                 <div id="form-error" role="alert" aria-live="polite" style="display:none;color:#cc1f1f;font-size:0.85rem;
@@ -72,9 +72,8 @@
                     <label for="privacy-consent">I agree that Dahlia Cerebral Palsy C.B.O may use the information I provide to respond to this enquiry. <a href="Privacy_policy.html">Read the Privacy Policy</a>.</label>
                 </div>
 
-                <button type="button" class="btn btn-blue" style="width:100%;"
-                        onclick="submitDonation()">Send Donation Enquiry</button>
-            </div>
+                <button type="submit" class="btn btn-blue" style="width:100%;">Send Donation Enquiry</button>
+            </form>
 
             <!-- Why donate sidebar -->
             <div>
@@ -90,7 +89,7 @@
                 </ul>
 
                 <div style="margin-top:28px;padding:18px 20px;background:#e8f5fc;
-                            border-radius:4px;border-left:4px solid #3CACE2;">
+                            border-radius:4px;">
                     <p style="font-size:0.88rem;color:#1a7ab5;font-weight:700;margin-bottom:6px;">
                         Contact us directly
                     </p>
@@ -111,7 +110,9 @@
     </div><!-- /.content-wrap -->
 
     <script>
-        function submitDonation() {
+        function submitDonation(event) {
+            event.preventDefault();
+
             const firstName = document.getElementById('first-name').value.trim();
             const lastName  = document.getElementById('last-name').value.trim();
             const email     = document.getElementById('email').value.trim();
@@ -143,7 +144,9 @@
             errBox.style.display = 'none';
 
             const body = `Dear Dahlia Cerebral Palsy C.B.O,\n\nI am ${firstName} ${lastName} and I would like to donate: ${details}.\n\nPlease contact me at: ${email}\n\nKind regards,\n${firstName} ${lastName}`;
-            window.location.href = `mailto:info@cerebralpalsytudor.com?subject=Donation Enquiry from ${firstName} ${lastName}&body=${encodeURIComponent(body)}`;
+            const subject = `Donation Enquiry from ${firstName} ${lastName}`;
+            window.location.href = `mailto:info@cerebralpalsytudor.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            return false;
         }
     </script>
 
