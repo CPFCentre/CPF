@@ -132,8 +132,6 @@ nav {
 .section-heading {
     font-size: 1.4rem; font-weight: 700;
     color: #1a7ab5;
-    border-left: 5px solid #3CACE2;
-    padding-left: 12px;
     margin: 32px 0 16px;
 }
 .section-heading:first-child { margin-top: 0; }
@@ -148,8 +146,7 @@ nav {
 .donate-cta {
     background: #e8f5fc;
     border: 1px solid #c5e2f3;
-    border-left: 5px solid #3CACE2;
-    border-radius: 0 4px 4px 0;
+    border-radius: 4px;
     padding: 20px 24px;
     margin: 28px 0;
     display: flex;
@@ -174,7 +171,7 @@ nav {
 
 /* ── MISSION BOXES ── */
 .mission-boxes { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin: 24px 0 32px; }
-.mission-box { background: #e8f5fc; border-top: 4px solid #3CACE2; padding: 20px; border-radius: 0 0 4px 4px; }
+.mission-box { background: #e8f5fc; padding: 20px; border-radius: 4px; }
 .mission-box h3 { font-size: 0.95rem; font-weight: 700; color: #1a7ab5; margin-bottom: 8px; }
 .mission-box p  { font-size: 0.88rem; color: #444; line-height: 1.6; }
 
@@ -290,7 +287,7 @@ nav {
 
 /* Sidebar */
 .blog-sidebar { position: sticky; top: 80px; }
-.sidebar-section { background: #f4f4f4; border-top: 3px solid #3CACE2; padding: 14px; margin-bottom: 20px; border-radius: 0 0 4px 4px; }
+.sidebar-section { background: #f4f4f4; padding: 14px; margin-bottom: 20px; border-radius: 4px; }
 .sidebar-section h3 { font-size: 0.82rem; font-weight: 700; color: #1a7ab5; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
 .sidebar-post { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #e0e0e0; }
 .sidebar-post:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
@@ -324,7 +321,7 @@ nav {
 /* ── DONATE FORM ── */
 .donate-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; margin-top: 24px; }
 .form-card { background: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 28px; }
-.form-card h2 { font-size: 1.1rem; font-weight: 700; color: #1a7ab5; margin-bottom: 18px; border-bottom: 2px solid #3CACE2; padding-bottom: 8px; }
+.form-card h2 { font-size: 1.1rem; font-weight: 700; color: #1a7ab5; margin-bottom: 18px; padding-bottom: 8px; }
 .form-group { margin-bottom: 16px; }
 .form-group label { display: block; font-size: 0.88rem; font-weight: 600; margin-bottom: 5px; color: #333; }
 .form-group input, .form-group textarea {
@@ -423,7 +420,7 @@ footer ul a:hover { color: #ffffff; text-decoration: none; }
 .footer-bottom a:hover { color: #3CACE2; text-decoration: none; }
 
 /* ── THERAPIES ── */
-.therapy-section { border-left: 4px solid #3CACE2; padding-left: 16px; margin-bottom: 26px; }
+.therapy-section { margin-bottom: 26px; }
 .therapy-section h2 { font-size: 1.05rem; font-weight: 700; color: #1a7ab5; margin-bottom: 7px; }
 .therapy-section p { font-size: 0.92rem; color: #333; line-height: 1.75; }
 
